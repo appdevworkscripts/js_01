@@ -19,6 +19,48 @@
 			<button ng-click="myf()">MYF Call</button>
 			
 		</div>
+
+		<div ng-controller="C">
+			<input type="radio" value="male" name="gender" ng-model="gender"> Male
+            <input type="radio" value="female" name="gender" ng-model="gender"> FeMale
+
+			<p ng-if="gender=='male'">
+                This paragraph is for males
+            </p>
+			<p ng-show="gender=='male'">
+                This paragraph is for males
+            </p>
+			<p ng-hide="gender!='male'">
+                This paragraph is for males
+            </p>
+
+
+
+            <div ng-repeat="a in c">
+                {{a}}
+            </div>
+
+
+            <ul>
+                <li ng-repeat="stu in students">
+                    {{stu.name}} - {{stu.roll}}
+                </li>
+            </ul>
+            <table border="1">
+                <thead>
+                    <th>Serial Number</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="stu in students">
+                        <td>{{$index+1}}</td>
+                        <td>{{stu.name}}</td>
+                        <td>{{stu.roll}}</td>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
 		<script src="angular.js"></script>
 		<script>
 			var app=angular.module('xyz',[]);
@@ -39,10 +81,15 @@
 					console.log(s.name);
 				}
 			}]);
-			
-			function xyz(){
-				console.log('clicked');
-			}
+			app.controller('C',['$scope',function(s){
+				s.c=[3,5,6,1,2];
+                s.students=[
+                    {name:'Nadeem',roll:'2'},
+                    {name:'Mridul',roll:'1'},
+                    {name:'Sanjay',roll:'3'},
+                ]
+			}]);
+
 		</script>
 		
 	</body>
