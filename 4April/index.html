@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="xyz">
+	<head>
+	</head>
+	<body>
+		<div >
+		{{x+5}}
+		</div>
+		<div ng-controller="A">
+		<span ng-bind="x+5" ng-click="xyz()"></span>
+		<button ng-click="x=x+2">click me!!</button>
+		</div>
+		<div ng-controller="B">
+			<input ng-model="name" />
+			<input ng-model="name" />
+			{{name}}<br />
+			
+			<span ng-bind="name"></span>
+			<button ng-click="myf()">MYF Call</button>
+			
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module('xyz',[]);
+			app.run(['$rootScope','$http',function(r,h){
+				r.x=100;
+			}]);
+			
+			app.controller('A',['$scope',function(s){
+				s.x=50
+				s.xyz=function(){	
+					console.log('xyz called');
+					s.x=100;
+				}
+			}]);
+			app.controller('B',['$scope',function(s){
+				s.x=25;
+				s.myf=function(){
+					console.log(s.name);
+				}
+			}]);
+			
+			function xyz(){
+				console.log('clicked');
+			}
+		</script>
+		
+	</body>
+</html>

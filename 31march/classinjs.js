@@ -6,7 +6,7 @@ Car.prototype.getName=function(){
     return this.model;
 }
 var x=new Car();
-x.model='maruti';
+x.model='maruti';-
 x.year='1990';
 
 var y=new Car();
