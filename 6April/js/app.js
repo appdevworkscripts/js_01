@@ -1,5 +1,6 @@
 var app=angular.module('myapp',['ngRoute']);
-
+app.value('max1',{a:2,b:4});
+app.constant('max2',34);
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 	$routeProvider.when('/',{
 		templateUrl:'views/home.html'
@@ -14,9 +15,36 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 	$locationProvider.html5Mode(true);
 }]);
 
+app.factory('Mymath',[function(){
+	var obj={
+		square:function(num){
+			return num*num;
+		},
+		cube:function(num){
+			return num*num*num;
+		}
+	};
+	return obj;
+}])
 
-app.controller('ContactUsController',['$scope',function($scope){
+app.service('MymathService',[function(){
+	
+		this.square=function(num){
+			return num*num;
+		},
+		this.cube=function(num){
+			return num*num*num;
+		}
+	
+}])
+
+
+app.controller('ContactUsController',['$scope','max1','max2','Mymath','MymathService',function($scope,max1,max2,Mymath,MymathService){
 	$scope.submitForm=function(){
 		console.log($scope.o);
 	}
+	console.log(max1);
+	console.log(max2);
+	console.log(Mymath.square(4));
+	console.log(MymathService.square(5));
 }]);
