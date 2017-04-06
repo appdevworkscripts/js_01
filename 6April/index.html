@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<title>My Small App</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<base href="/">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1>Welcome</h1>
+				<div class="navbar navbar-default">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li><a href="/">Home</a></li>
+							<li><a href="/about_us">About us</a></li>
+							<li><a href="/contact_us">Contact us</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="row well" ng-view >
+				
+			</div>
+			<div class="row">
+				Copyright &copy;
+			</div>			
+		</div>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/app.js"></script>
+	<body>
+</html>
