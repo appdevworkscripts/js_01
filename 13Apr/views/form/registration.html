@@ -1,0 +1,50 @@
+<div class="row">
+    <div class=" col-md-6 col-md-offset-3 ">
+    
+        <form role="form" name="registrationForm" novalidate ng-submit="submitForm()">
+            <div class="form-group">                
+                <label for="name">Name</label>
+                <input id="name" name="name" ng-model="user.name" class="form-control" required/>
+                
+                
+                <span class="text-danger small" ng-show="registrationForm.name.$touched && registrationForm.name.$invalid" ng-messages="registrationForm.name.$error">
+                     <span ng-message="required">Name is required</span>
+                </span>
+                
+            </div>
+            <div class="form-group">                
+                <label for="locality">Locality</label>
+                <input id="locality" name="locality" ng-model="user.locality" class="form-control" required/>
+                
+                <span class="text-danger small" ng-show="registrationForm.locality.$touched && registrationForm.locality.$invalid" ng-messages="registrationForm.locality.$error">
+                     <span ng-message="required">Locality is required</span>
+                </span>
+            </div>
+            <div class="form-group">                
+                <label for="phone">Phone</label>
+                <input id="phone" ng-model="user.mobileNumber" name="phone" class="form-control" required maxlength="10" minlength="10" pattern="^\d{10}$" />
+                <span class="text-danger small" ng-show="registrationForm.phone.$touched  && registrationForm.phone.$invalid" ng-messages="registrationForm.phone.$error">
+                     <span ng-message="required">Phone number is required</span>
+                     <span ng-message="minlength">Phone number should contain 10 digits</span>
+                     <span ng-message="pattern">Phone number should contain only digits</span>
+                </span>
+            </div>
+            <div class="form-group">                
+                <label for="email">Email</label>
+                <input id="email" ng-model="user.email" type="email" name="email" class="form-control" required/>
+                <span class="text-danger small" ng-show="registrationForm.email.$touched  && registrationForm.email.$invalid" ng-messages="registrationForm.email.$error">
+                     <span ng-message="required">Email is required</span>
+                     <span ng-message="email">Email is not valid</span>
+                </span>
+                
+            </div>
+            <div class="form-group">                
+                <label for="question">Life Challenging Question</label>
+                <textarea id="question" ng-model="user.question" rows="5" class="form-control"></textarea>
+            </div>
+            <input type="submit" value="Submit" ng-disabled="registrationForm.$invalid" class="btn btn-primary">
+            <input type="reset" value="Reset" class="btn btn-danger">
+        </form>
+    
+    </div>
+</div>

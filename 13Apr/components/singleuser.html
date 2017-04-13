@@ -1,0 +1,27 @@
+<div class="col-md-4">
+    <h1 ng-click="myclick()">{{user.name}}</h1> <small>{{user.email}}</small>
+    <br /> <strong>{{user.mobileNumber}}</strong>
+    <p>{{user.question}} </p>
+    
+    
+    
+    <div id="myModal{{user.mobileNumber}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{user.name}}</h4>
+      </div>
+      <div class="modal-body">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center={{user.locality}}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyC4dCch-Hn4tiuhV7bD30VM5Am8fcbX7Wg" style="width:100%">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
